@@ -4,7 +4,35 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1 class="text-body-emphasis">Get started with the Digital Credential API</h1>
+<p class="fs-5 col-md-8">Request verified identity documents such as Mobile Driving Licenses or National ID cards</p>
+
+<div class="list-group" id="attributeList">
+    <label class="list-group-item d-flex gap-2">
+        <span>
+            MDOC - Mobile Driving License (mDL)
+            <small class="d-block text-body-secondary">doctype: org.iso.18013.5.1.mDL</small>
+        </span>
+    </label>
+</div>
+<div class="col-md-8 p-4">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="signRequest">
+        <label class="form-check-label" for="signRequest">
+            Signed request
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="useEncryption">
+        <label class="form-check-label" for="useEncryption">
+            Use encryption
+        </label>
+    </div>
+</div>
+
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group-vertical me-2 mt-3" role="group" aria-label="First group">
+        <button type="button" class="btn btn-outline-primary" onclick="showRequest('openid4vp-v1')">Show Request (OpenID4VP 1.0)</button>
+        <button type="button" class="btn btn-outline-primary" onclick="requestAndShowDigitalCreds('openid4vp-v1')">Request Credentials (OpenID4VP 1.0)</button>
+    </div>
 </div>
