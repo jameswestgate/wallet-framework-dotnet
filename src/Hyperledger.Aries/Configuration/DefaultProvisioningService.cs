@@ -99,14 +99,22 @@ namespace Hyperledger.Aries.Configuration
             {
                 throw new ArgumentNullException(nameof(agentOptions));
             }
+            var wallet = default(Wallet);
 
             // Create agent wallet
-            await WalletService.CreateWalletAsync(
-                configuration: agentOptions.WalletConfiguration,
-                credentials: agentOptions.WalletCredentials);
-            var wallet = await WalletService.GetWalletAsync(
-                configuration: agentOptions.WalletConfiguration,
-                credentials: agentOptions.WalletCredentials);
+            try
+            {
+                await WalletService.CreateWalletAsync(
+                    configuration: agentOptions.WalletConfiguration,
+                    credentials: agentOptions.WalletCredentials);
+                wallet = await WalletService.GetWalletAsync(
+                    configuration: agentOptions.WalletConfiguration,
+                    credentials: agentOptions.WalletCredentials);
+            }
+            catch (Exception ex)
+            {
+                throw new WalletCreateGetException(ex.Message);
+            }
 
             // Configure agent endpoint
             AgentEndpoint endpoint = null;
