@@ -48,11 +48,32 @@ public class RequestController : ControllerBase
         return Ok(response);
     }
 
-    //Add validateResponse endpoint 
     [HttpPost("api/validateResponse")]
-    public IActionResult ValidateResponse([FromBody] JsonElement response)
+    public IActionResult ValidateResponse([FromBody] ValidateRequestInput request)
     {
-        // Process the JSON response
-        return Ok(new { message = "Response received", data = response });
+        if (request == null)
+        {
+            return BadRequest(new { error = "Invalid request body" });
+        }
+
+        if (request.Data?.VpToken == null || !request.Data.VpToken.Any())
+        {
+            return BadRequest(new { error = "VP token is required" });
+        }
+
+        if (request.State == null)
+        {
+            return BadRequest(new { error = "State is required for validation" });
+        }
+
+        try
+        {
+            var response = DcApiResponseValidator.Validate(request);
+            return Ok(response);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { error = $"Validation failed: {ex.Message}" });
+        }
     }
 }
