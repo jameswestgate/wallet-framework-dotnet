@@ -1,0 +1,34 @@
+{
+    "debug": [
+        {
+            "name": "Response Encrypted",
+            "value": false
+        },
+        {
+            "name": "Vp_token Size",
+            "value": "1"
+        },
+        {
+            "name": "Device Response Verification for cred1",
+            "value": "Success"
+        },
+        {
+            "name": "Document Size for cred1",
+            "value": 1
+        }
+    ],
+    "response_data": [
+        {
+            "name": "family_name",
+            "value": "Mustermann"
+        },
+        {
+            "name": "given_name",
+            "value": "Erika"
+        },
+        {
+            "name": "age_over_21",
+            "value": true
+        }
+    ]
+}
