@@ -1,0 +1,57 @@
+{
+    "protocol": "openid4vp-v1-unsigned",
+    "request": {
+        "client_metadata": {
+            "vp_formats_supported": {
+                "mso_mdoc": {
+                    "deviceauth_alg_values": [
+                        -7
+                    ],
+                    "issuerauth_alg_values": [
+                        -7
+                    ]
+                }
+            }
+        },
+        "dcql_query": {
+            "credentials": [
+                {
+                    "claims": [
+                        {
+                            "path": [
+                                "org.iso.18013.5.1",
+                                "family_name"
+                            ]
+                        },
+                        {
+                            "path": [
+                                "org.iso.18013.5.1",
+                                "given_name"
+                            ]
+                        },
+                        {
+                            "path": [
+                                "org.iso.18013.5.1",
+                                "age_over_21"
+                            ]
+                        }
+                    ],
+                    "format": "mso_mdoc",
+                    "id": "cred1",
+                    "meta": {
+                        "doctype_value": "org.iso.18013.5.1.mDL"
+                    }
+                }
+            ]
+        },
+        "nonce": "7Nb1cRwUrOMU2zHx6JbgKge29g2dgviiRrfjAMGUzVE",
+        "response_mode": "dc_api",
+        "response_type": "vp_token"
+    },
+    "state": {
+        "credential_type": "mso_mdoc",
+        "nonce": "7Nb1cRwUrOMU2zHx6JbgKge29g2dgviiRrfjAMGUzVE",
+        "private_key": "CgL6L2inarP3f4P4sJOAenoRLR_0vKm2xizprEkAsic=",
+        "public_key": "BJ0t8RzmPnl2e1vII4RniLwSudEeAd8D0N49S6eUsmEwVXIdeVvjhoty0vQxFiQfwkJKV10UoAAOkxeDpOYFKP8="
+    }
+}

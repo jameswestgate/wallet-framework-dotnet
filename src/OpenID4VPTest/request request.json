@@ -1,0 +1,38 @@
+{
+    "protocol": "openid4vp-v1",
+    "doctype": "org.iso.18013.5.1.mDL",
+    "attrs": {
+        "familyNameAttr": {
+            "namespace": "org.iso.18013.5.1",
+            "name": "family_name",
+            "displayName": "Family name",
+            "checked": true
+        },
+        "givenNameAttr": {
+            "namespace": "org.iso.18013.5.1",
+            "name": "given_name",
+            "displayName": "Given names",
+            "checked": true
+        },
+        "birthDateAttr": {
+            "namespace": "org.iso.18013.5.1",
+            "name": "birth_date",
+            "displayName": "Birth Date",
+            "checked": false
+        },
+        "portraitAttr": {
+            "namespace": "org.iso.18013.5.1",
+            "name": "portrait",
+            "displayName": "Portrait",
+            "checked": false
+        },
+        "ageOverAttr": {
+            "namespace": "org.iso.18013.5.1",
+            "name": "age_over_21",
+            "displayName": "Age Over 21",
+            "checked": true
+        }
+    },
+    "encrypt_response": false,
+    "sign_request": false
+}
