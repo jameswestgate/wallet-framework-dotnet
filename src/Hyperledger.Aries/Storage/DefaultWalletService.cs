@@ -1,4 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using Hyperledger.Aries.Extensions;
@@ -35,7 +36,7 @@ namespace Hyperledger.Aries.Storage
 
         private async Task<Wallet> OpenWalletWithMutexAsync(WalletConfiguration configuration, WalletCredentials credentials)
         {
-            Wallet wallet;
+            Wallet wallet = null;
 
             await OpenWalletSemaphore.WaitAsync();
             try
@@ -47,6 +48,15 @@ namespace Hyperledger.Aries.Storage
                     wallet = await Wallet.OpenWalletAsync(configuration.ToJson(), credentials.ToJson());
                     Wallets.TryAdd(configuration.Id, wallet);
                 }
+            }
+            catch (System.DllNotFoundException)
+            {
+                //Write console message in red
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Wallet not found. Continuing.");
+                Console.ResetColor();
+
+                return null;
             }
             finally
             {
